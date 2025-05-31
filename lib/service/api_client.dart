@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../models/cat.dart';
 
 class ApiClient {
-  static const String baseUrl = 'https://caf87f3112f7c9c85796.free.beeceptor.com/api/users/';
+  static const String baseUrl = 'https://ca018929adc6514e7f64.free.beeceptor.com/api/users';
 
   static Future<List<Cat>> getData() async {
     try {
@@ -74,11 +74,11 @@ class ApiClient {
     required String id,
     required String title,
     required String description,
-    required String url,}) async {
+    required String ImageUrl,}) async {
     try {
       final url = Uri.parse("$baseUrl/$id");
       final body = {
-        "url": url,
+        "url": ImageUrl,
         "info": {
           "body": description,
           "title": title,

@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>AdPage() )), icon: Icon(Icons.add)),
+
         title: Text('Cats Photos'),
       ),
       body: Visibility(
@@ -45,6 +46,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: getData,),
     );
   }
 

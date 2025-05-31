@@ -32,8 +32,9 @@ class ListTiles extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.delete),
-            onPressed: () {
-              ApiClient.deleteData(cat.id.toString());
+            onPressed: () async{
+
+              await ApiClient.deleteData(cat.id);
               ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text('Deleted')));
             },

@@ -5,6 +5,6 @@ class Info {
   Info({required this.body, required this.title});
 
   factory Info.fromJson(Map<String, dynamic> e) {
-    return Info(body: e["description"], title: e["title"]);
+    return Info(body: e["body"], title: e["title"]);
   }
 }

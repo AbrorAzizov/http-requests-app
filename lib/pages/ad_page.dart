@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/cat.dart';
 import '../service/api_client.dart';
 
@@ -39,10 +40,6 @@ class _AdPageState extends State<AdPage> {
 
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () =>navigation, icon: Icon(Icons.add),)
-        ],
         title: Text(isEditing ? 'Edit Notes' : 'Add Notes'),
       ),
       body: Column(
@@ -83,19 +80,18 @@ class _AdPageState extends State<AdPage> {
     );
   }
 
-  submitData() {
+  Future<void> submitData() async{
     final title = titleController.text;
     final url = urlController.text;
     final body = bodyController.text;
     if (title.isNotEmpty && url.isNotEmpty) {
       isEditing
-          ? ApiClient.editData(id: widget.cat!.id.toString(),
-        title: title, description: body, url: url,)
-          : ApiClient.submitData(title: title, url: url, description: body);
+          ? await ApiClient.editData(id: widget.cat!.id,
+        title: title, description: body, ImageUrl: url,)
+          : await ApiClient.submitData(title: title, url: url, description: body);
     }
-  }
-  void navigation (){
     Navigator.pop(context);
-    }
+
+}
 }
 
