@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () => navigation, icon: Icon(Icons.add)),
+        leading: IconButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>AdPage() )), icon: Icon(Icons.add)),
         title: Text('Cats Photos'),
       ),
       body: Visibility(
@@ -58,7 +58,5 @@ class _HomePageState extends State<HomePage> {
       isLoading = false;
     });
   }
-  void navigation (){
-    Navigator.push(context, MaterialPageRoute(builder: (context) =>AdPage() ));
-  }
+
 }

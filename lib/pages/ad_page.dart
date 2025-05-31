@@ -41,7 +41,7 @@ class _AdPageState extends State<AdPage> {
       appBar: AppBar(
         actions: [
           IconButton(
-              onPressed: () => Navigator.pop(context), icon: Icon(Icons.add))
+              onPressed: () =>navigation, icon: Icon(Icons.add),)
         ],
         title: Text(isEditing ? 'Edit Notes' : 'Add Notes'),
       ),
@@ -94,4 +94,8 @@ class _AdPageState extends State<AdPage> {
           : ApiClient.submitData(title: title, url: url, description: body);
     }
   }
+  void navigation (){
+    Navigator.pop(context);
+    }
 }
+
